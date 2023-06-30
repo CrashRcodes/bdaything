@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pink Website</title>
+  <style>
+    body {
+      background-color: #FF009D;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #confetti-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: confetti-fall linear infinite;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateX(calc(var(--start-x) * (100vw - 10px))) translateY(calc(var(--start-y) * (100vh - 10px))) rotate(0);
+      }
+      100% {
+        transform: translateX(calc(var(--end-x) * (100vw - 10px))) translateY(calc(var(--end-y) * (100vh - 10px))) rotate(calc(var(--rotate) * 360deg));
+      }
+    }
+
+    h1 {
+      color: white;
+      font-size: 24px;
+      padding-top: 100px;
+    }
+
+    form {
+      margin-top: 50px;
+    }
+
+    label {
+      font-size: 18px;
+      color: white;
+    }
+
+    input[type="password"] {
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: white;
+      border: none;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    #pass{
+        height: 500px;
+        background-image: url(bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #giftContainer {
+      display: none;
+      margin-top: 50px;
+      background-image: url(7r2zp6.jpg);
+      height: 500px;
+    }
+
+    #giftText {
+      color: yellow;
+      font-size: 50px;
+      font: bolder;
+    }
+
+    #giftImage {
+      width: 100%;
+      height: 200px;
+      background: repeating-linear-gradient(45deg, pink, pink 10px, transparent 10px, transparent 20px);
+    }
+
+    #passwordform {
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: fixed;
+        padding: 20px;
+        z-index: 2;
+    }
+
+  </style>
+</head>
+<body>
+
+    <div id="pass">
+    <div id="confetti-container"></div>
+
+  <h1>Happy Birthday nig- Crasher</h1><h1>Enter the fucking password</h1>
+  <form id="passwordForm">
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+
+    <br>
+
+    <input type="submit" value="unlock">
+  </form>
+</div>
+
+  <div id="giftContainer">
+    <h2 style="font-size: 50px; color: yellow;" id="giftText">Crsr happy birthday<br><br>mofo stop staying awake till 2am bruh<br><br>your gift is <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&feature=youtu.be">this</a><br><br>nah but on a serious note i aint got no gift unfortunately ig we can play chess</h2>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<img id="fromneph" src="7gk0k0.jpg" alt="">
+
+<div id="crus" style=" background-color: #FFB800;">
+    <br>
+    <h2 style="text-align: left;">these people definitely have a crush on you</h2>
+    <br>
+    <img src="1.png" alt="">
+    <h4 style="text-align: center;">-my americano friend</h4>
+    <br>
+    <img src="2.png" alt="">
+    <h4 style="text-align: center;">-some dude from a random server</h4>
+    <br>
+    <img src="3.png" alt="">
+    <h4 style="text-align: center;">he did not say it</h4>
+    <br>
+    <img src="4.png" alt="">
+    <h4 style="text-align: center;">wait nvm he did</h4>
+    <br>
+    <img src="5.png" alt="">
+    <h4 style="text-align: center;">indeed it is</h4>
+</div>
+
+  <script>
+      function createConfetti() {
+    var confettiContainer = document.getElementById("confetti-container");
+
+    for (var i = 0; i < 200; i++) { // Increase the number of confetti particles
+      var confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+
+      // Randomize the confetti colors
+      confetti.style.backgroundColor = getRandomColor();
+
+      // Randomize the confetti sizes
+      var size = Math.random() * 20 + 10;
+      confetti.style.width = size + "px";
+      confetti.style.height = size + "px";
+
+      // Randomize the confetti animation properties
+      confetti.style.setProperty("--start-x", Math.random()); // Randomize starting x value between 0 and 1
+      confetti.style.setProperty("--start-y", -Math.random()); // Randomize starting y value between 0 and -1
+      confetti.style.setProperty("--end-x", Math.random() * 2 - 1); // Randomize ending x value between -1 and 1
+      confetti.style.setProperty("--end-y", Math.random()); // Randomize ending y value between 0 and 1
+      confetti.style.setProperty("--rotate", Math.random());
+      confetti.style.animationDuration = Math.random() * 1.5 + 0.5 + "s"; // Faster falling confetti (0.5 - 2 seconds)
+      confetti.style.animationTimingFunction = "cubic-bezier(" + Math.random() + "," + Math.random() + "," + Math.random() + "," + Math.random() + ")";
+
+      confettiContainer.appendChild(confetti);
+    }
+
+    // Stop confetti after 5 seconds
+    setTimeout(function() {
+      confettiContainer.innerHTML = "";
+    }, 5000);
+  }
+
+  // Helper function to generate random color
+  function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  createConfetti();
+
+    var form = document.getElementById("passwordForm");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      var passwordInput = document.getElementById("password").value;
+      var lowercasePassword = passwordInput.toLowerCase();
+      
+      if (lowercasePassword === "guess") {
+        document.getElementById("giftContainer").style.display = "block";
+      } else {
+        alert("Incorrect password! Access denied.");
+      }
+    });
+  </script>
+</body>
+</html>
